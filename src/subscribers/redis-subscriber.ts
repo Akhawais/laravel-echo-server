@@ -44,7 +44,7 @@ export class RedisSubscriber implements Subscriber {
                 }
             });
 
-            this._redis.psubscribe('*', (err, count) => {
+            this._redis.psubscribe(this.options.namespace || '*', (err, count) => {
                 if (err) {
                     reject('Redis could not subscribe.')
                 }
